@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>La Maison Tess — Hero Options</title>
+<link rel="icon" type="image/png" href="assets/img/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/heroes.css" />
+</head>
+<body>
+
+<div class="stage" id="stage">
+
+  <!-- 01 · NOIR MINIMAL -->
+  <section class="hv hv--noir is-active" data-name="Noir Minimal">
+    <div class="hv__center">
+      <p class="hv-eyebrow">Adonis, Lebanon · Since 2007</p>
+      <h1 class="hv-word">La Maison<br><span>Tess</span></h1>
+      <span class="hv-rule"></span>
+      <p class="hv-sub">Hair · Makeup · Nails · Aesthetic Care</p>
+      <div class="hv-cta"><a class="hbtn hbtn--gold" href="#">Book Now</a><a class="hbtn hbtn--ghost-d" href="#">Explore</a></div>
+    </div>
+  </section>
+
+  <!-- 02 · IVORY EDITORIAL -->
+  <section class="hv hv--ivory" data-name="Ivory Editorial">
+    <span class="hv-corner hv-corner--tl">01 — Adonis</span>
+    <span class="hv-corner hv-corner--tr">Est. 2007</span>
+    <div class="hv__frame"></div>
+    <div class="hv__center">
+      <p class="hv-eyebrow hv-eyebrow--ink">The Art of Beauty</p>
+      <h1 class="hv-word hv-word--ink">La Maison<br><span>Tess</span></h1>
+      <p class="hv-sub hv-sub--ink">Hair · Makeup · Nails · Aesthetic Care</p>
+      <div class="hv-cta"><a class="hbtn hbtn--ink" href="#">Book an Appointment</a></div>
+    </div>
+  </section>
+
+  <!-- 08 · REEDED IVORY -->
+  <section class="hv hv--reeded" data-name="Reeded Ivory">
+    <div class="hv__center">
+      <p class="hv-eyebrow hv-eyebrow--ink">The Art of Beauty</p>
+      <h1 class="hv-word hv-word--ink">La Maison Tess</h1>
+      <p class="hv-sub hv-sub--ink">Hair · Makeup · Nails · Aesthetic Care</p>
+      <div class="hv-cta"><a class="hbtn hbtn--ink" href="#">Book an Appointment</a></div>
+    </div>
+  </section>
+
+  <!-- 09 · SPOTLIGHT CHARCOAL -->
+  <section class="hv hv--spot" data-name="Spotlight">
+    <div class="hv__center">
+      <p class="hv-eyebrow">Adonis, Lebanon · Since 2007</p>
+      <h1 class="hv-word hv-word--serif hv-word--light">La Maison Tess</h1>
+      <span class="hv-rule"></span>
+      <p class="hv-sub">The Art of Beauty</p>
+      <div class="hv-cta"><a class="hbtn hbtn--gold" href="#">Book Now</a><a class="hbtn hbtn--ghost-d" href="#">Explore</a></div>
+    </div>
+  </section>
+
+  <!-- 10 · GRAND TYPE -->
+  <section class="hv hv--grand" data-name="Grand Type">
+    <span class="grand__watermark" aria-hidden="true">TESS</span>
+    <div class="grand__content">
+      <p class="hv-eyebrow hv-eyebrow--ink">La Maison · Adonis · Since 2007</p>
+      <h1 class="grand__title">THE ART<br>OF BEAUTY</h1>
+      <p class="hv-sub hv-sub--ink">Hair · Makeup · Nails · Aesthetic Care</p>
+      <div class="hv-cta"><a class="hbtn hbtn--ink" href="#">Book Now</a><a class="hbtn hbtn--ghost" href="#">View Menu</a></div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===== Switcher ===== -->
+<div class="switch">
+  <button class="switch__arrow" id="prev" aria-label="Previous hero">‹</button>
+  <div class="switch__mid">
+    <span class="switch__num" id="num">01</span>
+    <span class="switch__name" id="name">Noir Minimal</span>
+  </div>
+  <button class="switch__arrow" id="next" aria-label="Next hero">›</button>
+</div>
+<div class="dots" id="dots" role="tablist" aria-label="Hero options"></div>
+<p class="switch__hint">Tap the arrows or dots to preview · tell me which number you like</p>
+
+<script src="assets/js/heroes.js"></script>
+</body>
+</html>

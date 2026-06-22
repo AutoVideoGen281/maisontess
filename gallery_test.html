@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gallery options — La Maison Tess</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  --ink:#141311;
+  --muted:#6b665d;
+  --line:#e2dbce;
+
+  /* pure white vs. a second, warmer shade */
+  --white:#ffffff;
+  --shade:#efe9e0;     /* second shade of white for backgrounds */
+  --frame:#ffffff;     /* frame colour against the shade */
+
+  --display:'Outfit', system-ui, sans-serif;
+  --editor:'Cormorant Garamond', Georgia, serif;
+  --sans:'Jost', system-ui, sans-serif;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+body{ font-family:var(--sans); color:var(--ink); background:var(--white); -webkit-font-smoothing:antialiased; }
+img{ display:block; max-width:100%; }
+
+/* ---------------- SWITCHER ---------------- */
+.switcher{
+  position:sticky; top:0; z-index:50;
+  display:flex; flex-wrap:wrap; gap:.6rem; justify-content:center;
+  padding:1rem; background:rgba(255,255,255,.92); backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.switcher button{
+  font-family:var(--sans); cursor:pointer;
+  font-size:.72rem; letter-spacing:.12em; text-transform:uppercase;
+  padding:.7rem 1.1rem; border:1px solid var(--ink); background:transparent; color:var(--ink);
+  transition:background .25s, color .25s;
+}
+.switcher button.is-active{ background:var(--ink); color:#fff; }
+.switcher__note{ width:100%; text-align:center; font-size:.8rem; color:var(--muted); margin-top:.2rem; }
+
+/* ---------------- GALLERY ---------------- */
+.demo{ padding:clamp(3rem,8vw,6rem) clamp(1.15rem,5vw,4rem); transition:background .3s; }
+.demo__head{ text-align:center; margin-bottom:clamp(2rem,5vw,3.5rem); }
+.demo__eyebrow{ font-size:.7rem; letter-spacing:.3em; text-transform:uppercase; color:var(--muted); }
+.demo__title{
+  font-family:var(--display); font-weight:300; text-transform:uppercase;
+  font-size:clamp(1.8rem,6vw,3rem); letter-spacing:.05em; margin-top:.6rem;
+}
+
+.grid{
+  max-width:1200px; margin-inline:auto;
+  display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(.8rem,2.5vw,1.6rem);
+}
+@media (min-width:720px){ .grid{ grid-template-columns:repeat(3,1fr); } }
+@media (min-width:1000px){
+  .grid{ grid-template-columns:repeat(6,1fr); }
+  /* feature the centre image across two columns for an editorial feel */
+  .grid figure:nth-child(1){ grid-column:span 2; }
+  .grid figure:nth-child(2){ grid-column:span 2; }
+  .grid figure:nth-child(3){ grid-column:span 2; grid-row:span 2; }
+  .grid figure:nth-child(4){ grid-column:span 2; }
+  .grid figure:nth-child(5){ grid-column:span 2; }
+}
+.grid figure{ margin:0; }
+.grid img{
+  width:100%; height:100%; aspect-ratio:1/1; object-fit:cover;
+  transition:transform .5s cubic-bezier(.22,.61,.36,1);
+}
+@media (hover:hover){ .grid figure:hover img{ transform:scale(1.03); } }
+
+/* ===== OPTION 1 — pure white bg, images directly on it, square ===== */
+body[data-opt="1"] .demo{ background:var(--white); }
+body[data-opt="1"] .grid img{ border:0; border-radius:0; box-shadow:none; }
+
+/* ===== OPTION 2 — pure white bg, rounded corners ===== */
+body[data-opt="2"] .demo{ background:var(--white); }
+body[data-opt="2"] .grid img{ border:0; border-radius:16px; box-shadow:none; }
+
+/* ===== OPTION 3 — two shades, white frame, square ===== */
+body[data-opt="3"] .demo{ background:var(--shade); }
+body[data-opt="3"] .grid img{
+  border:10px solid var(--frame); border-radius:0;
+  box-shadow:0 14px 30px -18px rgba(20,19,17,.35);
+}
+
+/* ===== OPTION 4 — two shades, white frame, rounded ===== */
+body[data-opt="4"] .demo{ background:var(--shade); }
+body[data-opt="4"] .grid img{
+  border:10px solid var(--frame); border-radius:16px;
+  box-shadow:0 14px 30px -18px rgba(20,19,17,.35);
+}
+</style>
+</head>
+<body data-opt="1">
+
+<div class="switcher">
+  <button data-set="1" class="is-active">1 · White, no border</button>
+  <button data-set="2">2 · White, rounded</button>
+  <button data-set="3">3 · Two shades, framed</button>
+  <button data-set="4">4 · Two shades, rounded</button>
+  <p class="switcher__note" id="note">Option 1 — full white background, images sitting directly on it (square corners).</p>
+</div>
+
+<section class="demo">
+  <header class="demo__head">
+    <p class="demo__eyebrow">The House</p>
+    <h2 class="demo__title">Inside La Maison</h2>
+  </header>
+  <div class="grid">
+    <figure><img src="assets/img/gallery00001.jpeg" alt="Inside La Maison Tess" /></figure>
+    <figure><img src="assets/img/gallery00002.jpeg" alt="Inside La Maison Tess" /></figure>
+    <figure><img src="assets/img/gallery00003.jpeg" alt="Inside La Maison Tess" /></figure>
+    <figure><img src="assets/img/gallery00004.jpeg" alt="Inside La Maison Tess" /></figure>
+    <figure><img src="assets/img/gallery00005.jpeg" alt="Inside La Maison Tess" /></figure>
+  </div>
+</section>
+
+<script>
+  var notes = {
+    "1": "Option 1 — full white background, images sitting directly on it (square corners).",
+    "2": "Option 2 — full white background, images with rounded corners.",
+    "3": "Option 3 — two shades of white: a soft background with a white frame around each square image.",
+    "4": "Option 4 — two shades of white with a white frame and rounded corners."
+  };
+  var buttons = document.querySelectorAll('.switcher button');
+  var note = document.getElementById('note');
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var opt = b.getAttribute('data-set');
+      document.body.setAttribute('data-opt', opt);
+      buttons.forEach(function (x) { x.classList.remove('is-active'); });
+      b.classList.add('is-active');
+      note.textContent = notes[opt];
+    });
+  });
+</script>
+</body>
+</html>

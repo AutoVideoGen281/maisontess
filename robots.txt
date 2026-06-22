@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Replace with the real domain before going live
+Sitemap: https://lamaisontess.com/sitemap.xml
